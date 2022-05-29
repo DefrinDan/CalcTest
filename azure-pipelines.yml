@@ -33,7 +33,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-steps:
+
 - task: UseDotNet@2
   inputs:
     version: '5.0.x'
@@ -44,7 +44,7 @@ steps:
     version: '3.0.x'
     packageType: runtime
 
-steps:
+
 - task: UseDotNet@2
   displayName: 'Install .NET Core SDK'
   inputs:
@@ -52,7 +52,7 @@ steps:
     performMultiLevelLookup: true
     includePreviewVersions: true # Required for preview versions
   
-steps:
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
@@ -60,7 +60,7 @@ steps:
     vstsFeed: 'my-vsts-feed' # A series of numbers and letters
 
 # do this before your build tasks
-steps:
+
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
