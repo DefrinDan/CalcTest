@@ -29,16 +29,13 @@ steps:
     version: '3.0.x'
     packageType: runtime
 
-- task: DotNetCoreCLI@2
-  displayName: Build
-  inputs:
-    command: build
-    projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguration)' # Update this to match your need
-
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
 
 - task: VSBuild@1
   inputs:
